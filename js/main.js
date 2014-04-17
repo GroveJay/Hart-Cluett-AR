@@ -70,7 +70,6 @@ var myAppController =
     },
 
     onDocumentMouseDown: function ( event ) {
-        alert("inside checking for intersections");
         event.preventDefault();
         projector = new THREE.Projector();
         camera = ARGON.threeCamera;
@@ -89,21 +88,15 @@ var myAppController =
         }
     }
 
-    switchModels: function (){
+    /*switchModels: function ( event ){
         scene = ARGON.World;
-    }
+    }*/
 };
 
 $(".floor").on('touchend', function(){
     $(".floor").removeClass("selected");
     $(this).addClass("selected");
 
-    //window.location.href="test.html";
-});
-
-$("body").on('touchend', function( e ){
-    alert("body touched");
-    
 });
 
 document.addEventListener("AR.DataSetLoadedEvent", myAppController.onDataSetLoaded);
