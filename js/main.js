@@ -9,8 +9,6 @@ var myAppController =
     
     onArgonReady : function()
     {
-        //myAppController.createContent();
-        //myAppController.createFrameMarkerContent();
         ARGON.loadDataset("textures/Team_Exterior_Device.xml");
     },
     
@@ -29,20 +27,6 @@ var myAppController =
             
             trackedObject.autoHideAfterFrames = 1;
             trackedObject.setTarget( stonesTarget );
-            
-            /*var loader = new THREE.OBJMTLLoader();
-            loader.load( 'obj/marbleNew.obj', 'obj/marbleNew.mtl', function ( object ) {
-                object.position.x = -40;
-                object.position.z = 0;
-                object.position.y = -95;
-                object.rotation.y = 180 * Math.PI / 180.0;
-                object.rotation.x = 90 * Math.PI / 180.0;
-                object.scale.x = .17;
-                object.scale.y = .17;
-                object.scale.z = .17;
-                trackedObject.add( object );
-                objects.push( object );
-            } );*/
 
             var dae, skin;
             var loader = new THREE.ColladaLoader();
@@ -86,6 +70,7 @@ var myAppController =
     },
 
     onDocumentMouseDown: function ( event ) {
+        alert("inside checking for intersections");
         event.preventDefault();
         projector = new THREE.Projector();
         camera = ARGON.threeCamera;
@@ -97,25 +82,28 @@ var myAppController =
         if ( intersects.length > 0 ) {
             alert("intersects length is > 0");
             window.location.href="test.html";
-            //intersects[ 0 ].object.material.color.setHex( Math.random() * 0xffffff );
-
-            //var particle = new THREE.Sprite( particleMaterial );
-            //particle.position = intersects[ 0 ].point;
-            //particle.scale.x = particle.scale.y = 16;
-            //scene.add( particle );
+            var particle = new THREE.Sprite( particleMaterial );
+            particle.position = intersects[ 0 ].point;
+            particle.scale.x = particle.scale.y = 16;
+            ARGON.World.add( particle );
         }
+    }
+
+    switchModels: function (){
+        scene = ARGON.World;
     }
 };
 
 $(".floor").on('touchend', function(){
     $(".floor").removeClass("selected");
     $(this).addClass("selected");
-    window.location.href="test.html";
+
+    //window.location.href="test.html";
 });
 
-document.addEventListener( 'touchend', myAppController.onDocumentMouseDown, false );
 document.addEventListener("AR.DataSetLoadedEvent", myAppController.onDataSetLoaded);
 document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
+document.addEventListener("touchend", myAppController.onDocumentMouseDown, false );
 
 function debug(text){
     //alert("debugging!");
