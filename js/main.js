@@ -81,7 +81,7 @@ var myAppController =
         var intersects = raycaster.intersectObjects( objects );
         if ( intersects.length > 0 ) {
             alert("intersects length is > 0");
-            window.location.href="test.html";
+            //window.location.href="test.html";
             var particle = new THREE.Sprite( particleMaterial );
             particle.position = intersects[ 0 ].point;
             particle.scale.x = particle.scale.y = 16;
@@ -99,6 +99,11 @@ $(".floor").on('touchend', function(){
     $(this).addClass("selected");
 
     //window.location.href="test.html";
+});
+
+$("body").on('touchend', function( e ){
+    alert("body touched");
+    
 });
 
 document.addEventListener("AR.DataSetLoadedEvent", myAppController.onDataSetLoaded);
