@@ -42,10 +42,10 @@ canvas{
 }
 
 .debug{
-	background-color:#ddd;
+	background-color:rgba(220, 220, 220, 0.5)#ddd;
 	color:#000;
-	width:500px;
-	height: 100px;
+	width:95%;
+	height: 95%;
 	position:absolute;
 	top:0px;
 	right: 0px;
