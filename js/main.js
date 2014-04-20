@@ -104,6 +104,8 @@ document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
 document.addEventListener("touchend", myAppController.onDocumentMouseDown, false );
 
 function debug(text){
-    //alert("debugging!");
-    $('.debug').html(text);
+    alert("debugging!");
+    $('.debug').html(text+"\n");
 }
+
+debug("Starting!");

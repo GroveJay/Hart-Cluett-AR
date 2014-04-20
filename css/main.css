@@ -16,7 +16,6 @@ canvas{
 	vertical-align: middle;
 	line-height: 39px;
 	text-align:center;
-	font-style: ;
 	width: 45px;
 	height:180px;
 	position: absolute;
@@ -42,12 +41,14 @@ canvas{
 }
 
 .debug{
-	background-color:rgba(220, 220, 220, 0.5)#ddd;
+	background:rgba(220, 220, 220, 0.5);
 	color:#000;
 	width:95%;
 	height: 95%;
 	position:absolute;
-	top:0px;
-	right: 0px;
+	top:10px;
+	right: 10px;
 	z-index: 1050;
+	font-size: 20px;
+	text-align:left;
 }
