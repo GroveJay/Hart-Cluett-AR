@@ -1,4 +1,4 @@
-var testing = 0;
+var testing = 1;
 var projector, camera;
 var objects = [];
 var audioElement = document.createElement('audio');
@@ -78,10 +78,10 @@ var myAppController =
         projector.unprojectVector( vector, camera );
         var raycaster = new THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
         var intersects = raycaster.intersectObjects( objects );
-        debugObj(vector);
+        /*debugObj(vector);
         debugObj(raycaster);
         debugObj(intersects);
-        debugObj(objects);
+        debugObj(objects);*/
         if ( intersects.length > 0 ) {
             alert("intersects length is > 0");
             //window.location.href="test.html";
@@ -92,9 +92,10 @@ var myAppController =
         }
     }
 
-    /*switchModels: function ( event ){
+    switchModels: function ( event ){
         scene = ARGON.World;
-    }*/
+        debug("trying to switch Models");
+    }
 };
 
 function debugObj(obj){
@@ -126,6 +127,9 @@ function pauseAudio(){
 $(".floor").on('touchend', function(){
     $(".floor").removeClass("selected");
     $(this).addClass("selected");
+    var floor = $(this).html());
+    debug("floor: "+floor);
+    myAppController.switchModels(floor);
 });
 
 $("#play").on('touchend click', function(){
@@ -140,6 +144,10 @@ $("#play").on('touchend click', function(){
         $(this).html("P");          
     }
 });
+
+if(testing){
+    $(".debug").hide();
+}
 
 document.addEventListener("AR.DataSetLoadedEvent", myAppController.onDataSetLoaded);
 document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
