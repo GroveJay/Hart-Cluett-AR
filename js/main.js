@@ -145,9 +145,9 @@ $("#play").on('touchend click', function(){
     }
 });
 
-if(testing == 0){
+//if(testing == 0){
     $(".testing").hide();
-}
+//}
 
 document.addEventListener("AR.DataSetLoadedEvent", myAppController.onDataSetLoaded);
 document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
