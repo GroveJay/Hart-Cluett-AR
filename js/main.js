@@ -148,6 +148,7 @@ $("#play").on('touchend click', function(){
 //if(testing){
 //    $(".debug").hide();
 //}
+$(".debug").hide();
 
 document.addEventListener("AR.DataSetLoadedEvent", myAppController.onDataSetLoaded);
 document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
