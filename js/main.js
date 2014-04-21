@@ -124,8 +124,8 @@ function pauseAudio(){
 }
 
 // DOM STUFF //
-$(".floorSelector .button").on('touchend', function(){
-    $(".floorSelector . button").removeClass("selected");
+$(".floorSelector > .button").on('touchend click', function(){
+    $(".floorSelector > .button").removeClass("selected");
     $(this).addClass("selected");
     var floor = $(this).html();
     debug("floor: "+floor);
@@ -145,9 +145,9 @@ $("#play").on('touchend click', function(){
     }
 });
 
-if(!testing){
+//if(testing == 0){
     $(".debug").hide();
-}
+//}
 
 document.addEventListener("AR.DataSetLoadedEvent", myAppController.onDataSetLoaded);
 document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
