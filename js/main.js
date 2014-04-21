@@ -1,6 +1,7 @@
 var testing = 0;
 var projector, camera;
 var objects = [];
+var audioElement = document.createElement('audio');
 
 var myAppController =
 {
@@ -74,10 +75,13 @@ var myAppController =
         projector = new THREE.Projector();
         camera = ARGON.threeCamera;
         var vector = new THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1, 0.5 );
-        debug(vector.length);
         projector.unprojectVector( vector, camera );
         var raycaster = new THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
         var intersects = raycaster.intersectObjects( objects );
+        debugObj(vector);
+        debugObj(raycaster);
+        debugObj(intersects);
+        debugObj(objects);
         if ( intersects.length > 0 ) {
             alert("intersects length is > 0");
             //window.location.href="test.html";
@@ -93,19 +97,53 @@ var myAppController =
     }*/
 };
 
+function debugObj(obj){
+    $('.debug').append(JSON.stringify(obj, null, 4)+"<br/>");
+}
+
+function debug(text){
+    //alert("debugging!");
+    $('.debug').append(text+"<br/>");
+}
+
+function loadAudio(file){
+    audioElement.setAttribute('src', 'audio/'+file);
+    debug("File picked!");
+    audioElement.load;
+}
+
+function playAudio(){
+    audioElement.play();
+    debug("Audio started");
+}
+
+function pauseAudio(){
+    audioElement.pause();
+    debug("Audio paused");
+}
+
+// DOM STUFF //
 $(".floor").on('touchend', function(){
     $(".floor").removeClass("selected");
     $(this).addClass("selected");
+});
 
+$("#play").on('touchend click', function(){
+    if($(this).html()=="P"){
+        debug("Play pressed");
+        playAudio();
+        $(this).html("S");       
+    }
+    else{
+        debug("Stop pressed");
+        pauseAudio();
+        $(this).html("P");          
+    }
 });
 
 document.addEventListener("AR.DataSetLoadedEvent", myAppController.onDataSetLoaded);
 document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
 document.addEventListener("touchend", myAppController.onDocumentMouseDown, false );
-
-function debug(text){
-    alert("debugging!");
-    $('.debug').html(text+"\n");
-}
-
 debug("Starting!");
+$("#play").html("P");
+loadAudio("RichardHart.mp3");
