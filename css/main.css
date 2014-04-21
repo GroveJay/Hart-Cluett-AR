@@ -33,7 +33,7 @@ canvas{
 	font-size: 30px;
 }
 
-.floor.selected{
+.floorSelector .button .selected{
 	background-color:#222;
 	color: #ddd;
 }
