@@ -58,13 +58,12 @@
                onArgonReady : function()
                {
                	var mesh;
-               	var geometry = new THREE.SphereGeometry( 500, 60, 40 );
-               	geometry.applyMatrix( new THREE.Matrix4().makeScale( 10, 10, 10 ) );
-
+               	var geometry = new THREE.SphereGeometry( 100, 32, 32 );
 				var material = new THREE.MeshBasicMaterial( {
 					map: THREE.ImageUtils.loadTexture( 'img/test.jpg' )
 				} );
 				mesh = new THREE.Mesh( geometry, material );
+				mesh.scale.x = -1;
 
 				//sc.add(sphere);
 				ARGON.World.add( mesh );
