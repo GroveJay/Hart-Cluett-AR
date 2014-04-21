@@ -59,7 +59,7 @@
                {
                	var mesh;
                	var geometry = new THREE.SphereGeometry( 500, 60, 40 );
-               	geometry.applyMatrix( new THREE.Matrix4().makeScale( -1, 1, 1 ) );
+               	geometry.applyMatrix( new THREE.Matrix4().makeScale( 10, 10, 10 ) );
 
 				var material = new THREE.MeshBasicMaterial( {
 					map: THREE.ImageUtils.loadTexture( 'img/test.jpg' )
@@ -69,6 +69,7 @@
 				//sc.add(sphere);
 				ARGON.World.add( mesh );
  				ARGON.threeCamera.fov = 75;
+
  				ARGON.onRender = app.onRender; 
                }
     
