@@ -7,6 +7,7 @@ var lon = 0;
 var changed = false;
 var icount = 0;
 var sc = new THREE.Object3D();
+var audioElement = document.createElement('audio');
 
 //This code to allow the user to scroll with finger does not yet work. User can look around the panorama by moving the iPad
 var target = new THREE.Vector3();
@@ -114,8 +115,6 @@ document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
 document.addEventListener( 'touchstart', onDocumentTouchStart, false );
 document.addEventListener( 'touchmove', onDocumentTouchMove, false );
 
-var audioElement = document.createElement('audio');
-
 function loadAudio(file){
     audioElement.setAttribute('src', 'audio/'+file);
     //debug("File picked!");
@@ -132,6 +131,8 @@ function pauseAudio(){
     //debug("Audio paused");
 }
 
+loadAudio("RichardHart.mp3");
+
 $("#play").on('touchend click', function(){
     if($(this).hasClass("play")){
         //debug("Play pressed");
@@ -144,7 +145,6 @@ $("#play").on('touchend click', function(){
         $(this).removeClass("pause").addClass("play");		               
     }
 });
-loadAudio("RichardHart.mp3");
 
 $("#back").on('touchend click', function(){
 
