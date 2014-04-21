@@ -127,7 +127,7 @@ function pauseAudio(){
 $(".floor").on('touchend', function(){
     $(".floor").removeClass("selected");
     $(this).addClass("selected");
-    var floor = $(this).html());
+    var floor = $(this).html();
     debug("floor: "+floor);
     myAppController.switchModels(floor);
 });
