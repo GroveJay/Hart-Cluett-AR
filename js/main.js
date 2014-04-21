@@ -92,9 +92,10 @@ var myAppController =
         }
     },
 
-    switchModels: function ( event ){
+    switchModels: function ( floor, event ){
         scene = ARGON.World;
         debug("trying to switch Models");
+        alert("switching floors: "+ floor);
     }
 };
 
