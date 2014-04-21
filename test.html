@@ -31,30 +31,6 @@
 
 			
 			//This code to allow the user to scroll with finger does not yet work. User can look around the panorama by moving the iPad
- 			
-			function onDocumentTouchStart( event ) {
-
-				event.preventDefault();
-				var touch = event.touches[ 0 ];
-
-				touchX = touch.screenX;
-				touchY = touch.screenY;
-			}
-
-			function onDocumentTouchMove( event ) {
-
-				event.preventDefault();
-
-				var touch = event.touches[ 0 ];
-
-				lon -= ( touch.screenX - touchX ) * 0.1;
-				lat += ( touch.screenY - touchY ) * 0.1;
-
-				touchX = touch.screenX;
-				touchY = touch.screenY;
-				changed = true;
-			}
-			
      		var target = new THREE.Vector3();
 
      	 	var app = {
@@ -77,8 +53,6 @@
 					}  //onRender		    	 	
     	 	};
 
-       
-       
            var myAppController =
            {   
                geoSpot : null,
@@ -88,69 +62,23 @@
                	var element;
                	var side;
                	var object1;
- 
-               	
-				var sides1 = [
-					{
-						url: 'img/PANO_20140323_183205.0001.png',
-						position: new THREE.Vector3( -512, 0, 0 ),
-						rotation: new THREE.Euler( 0, Math.PI / 2, 0 )
-					},
-					{
-						url: 'img/PANO_20140323_183205.0003.png',
-						position: new THREE.Vector3 ( 512, 0, 0 ),
-						rotation: new THREE.Euler ( 0, -Math.PI / 2, 0 )
-					},
-					{
-						url: 'img/PANO_20140323_183205.0005.png',
-						position: new THREE.Vector3 ( 0,  -512, 0 ),
-						rotation: new THREE.Euler ( -Math.PI/2, 0, Math.PI )
-					},
-					{
-						url: 'img/PANO_20140323_183205.0004.png',
-						position: new THREE.Vector3 ( 0, 512, 0 ),
-						rotation: new THREE.Euler ( Math.PI/2 , 0, Math.PI)
-					},
-					{
-						url: 'img/PANO_20140323_183205.0000.png',
-						position: new THREE.Vector3 ( 0, 0,  512 ),
-						rotation: new THREE.Euler ( 0, Math.PI, 0 )
-					},
-					{
-						url: 'img/PANO_20140323_183205.0002.png',
-						position: new THREE.Vector3 ( 0, 0, -512 ),
-						rotation: new THREE.Euler ( 0, 0, 0 )
-					}
-				];
-				
 				sc.scale.set(10.0, 10.0, 10.0);
-
-				for ( var i = 0; i < sides1.length; i ++ ) {
-
-					var side = sides1[ i ];
-
-					var element = document.createElement( 'img' );
-					element.width = 1026; // 2 pixels extra to close the gap.
-					element.src = side.url;  //this loads the image
-
-					object1 = new THREE.CSS3DObject( element );
-					object1.position = side.position;
-					object1.rotation.copy(side.rotation);
-					sc.add(object1);
-				}
-
-					ARGON.World.add( sc );
- 					ARGON.threeCamera.fov = 75;
- 				 	ARGON.onRender = app.onRender; 
-
-
+				var sphere = new THREE.Mesh(
+					new THREE.SphereGeometry(100, 20, 20),
+					new THREE.MeshBasicMaterial({
+						map: THREE.ImageUtils.loadTexture('img/test.jpg')
+					})
+				);
+				sphere.scale.x = -1;
+				//sc.add(sphere);
+				ARGON.World.add( sphere );
+ 				ARGON.threeCamera.fov = 75;
+ 				ARGON.onRender = app.onRender; 
                }
     
            };
 
 		document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
-		document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-		document.addEventListener( 'touchmove', onDocumentTouchMove, false );
 
        </script>      
        
