@@ -62,17 +62,19 @@ canvas{
 }
 
 #back{
-	background-image: url("img/back2.png");
+	background-image: url("../img/back2.png");
 	background-repeat: no-repeat;
 	position: absolute;
 	left: 10px;
 	top: 30px;
-	overflow: hidden;
+	background-size: cover;
 }
 
 #play{
-	background-color: #9ff;
+	background-image: url("../img/play.png");
+	background-repeat: no-repeat;
 	position: absolute;
 	right: 10px;
 	top: 30px;
+	background-size: cover;
 }

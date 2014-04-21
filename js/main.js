@@ -137,12 +137,12 @@ $("#play").on('touchend click', function(){
     if($(this).html()=="P"){
         debug("Play pressed");
         playAudio();
-        $(this).html("S");       
+        $(this).css("background-image", "../img/pause.png");       
     }
     else{
         debug("Stop pressed");
         pauseAudio();
-        $(this).html("P");          
+        $(this).html("background-image", "../img/play.png");          
     }
 });
 
