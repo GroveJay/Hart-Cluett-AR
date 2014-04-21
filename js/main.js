@@ -1,4 +1,4 @@
-var testing = 1;
+var testing = 0;
 var projector, camera;
 var objects = [];
 var audioElement = document.createElement('audio');
@@ -95,7 +95,7 @@ var myAppController =
     switchModels: function ( floor, event ){
         scene = ARGON.World;
         debug("trying to switch Models");
-        alert("switching floors: "+ floor);
+        //alert("switching floors: "+ floor);
     }
 };
 
