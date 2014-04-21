@@ -142,7 +142,7 @@ $("#play").on('touchend click', function(){
     else{
         debug("Stop pressed");
         pauseAudio();
-        $(this).html("background-image", "../img/play.png");          
+        $(this).css("background-image", "../img/play.png");          
     }
 });
 
