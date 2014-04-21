@@ -7,16 +7,19 @@
 <html lang="en">
    <head>
        <title>Copenhagen May 2012</title>
-       <link rel="stylesheet" href="jslog.css" />
        <link rel="apple-touch-icon" href="assets/sample_icon_57x57.png" />
        <meta charset="utf-8"/>
        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
        <meta name="arenabled" />
-            
-
+       <link href="./css/main.css" rel="stylesheet">
    </head>
    <body>
-  
+  		<div id="back" class="ui button">
+	        B
+	    </div>
+	    <div id="play" class="ui button">
+	        P
+	    </div>
 		<script src="http://argon.gatech.edu/argon.js"></script>
         <script>
  			var touchX;
@@ -138,9 +141,43 @@
     
            };
 
+
+
 		document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
 		document.addEventListener( 'touchstart', onDocumentTouchStart, false );
 		document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+
+		function loadAudio(file){
+		    audioElement.setAttribute('src', 'audio/'+file);
+		    debug("File picked!");
+		    audioElement.load;
+		}
+
+		function playAudio(){
+		    audioElement.play();
+		    debug("Audio started");
+		}
+
+		function pauseAudio(){
+		    audioElement.pause();
+		    debug("Audio paused");
+		}
+
+		$("#play").on('touchend click', function(){
+    if($(this).html()=="P"){
+        debug("Play pressed");
+        playAudio();
+        $(this).html("S");       
+    }
+    else{
+        debug("Stop pressed");
+        pauseAudio();
+        $(this).html("P");          
+    }
+
+    $("#play").html("P");
+	loadAudio("RichardHart.mp3");
+});
 
        </script>      
        
