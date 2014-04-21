@@ -147,3 +147,4 @@ document.addEventListener("touchend", myAppController.onDocumentMouseDown, false
 debug("Starting!");
 $("#play").html("P");
 loadAudio("RichardHart.mp3");
+debugObj(ARGON.threeCamera)
