@@ -99,12 +99,12 @@ var myAppController =
 };
 
 function debugObj(obj){
-    $('.debug').append(JSON.stringify(obj, null, 4)+"<br/>");
+    $('.testing').append(JSON.stringify(obj, null, 4)+"<br/>");
 }
 
 function debug(text){
     //alert("debugging!");
-    $('.debug').append(text+"<br/>");
+    $('.testing').append(text+"<br/>");
 }
 
 function loadAudio(file){
@@ -145,9 +145,9 @@ $("#play").on('touchend click', function(){
     }
 });
 
-//if(testing == 0){
-    $(".debug").hide();
-//}
+if(testing == 0){
+    $(".testing").hide();
+}
 
 document.addEventListener("AR.DataSetLoadedEvent", myAppController.onDataSetLoaded);
 document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
