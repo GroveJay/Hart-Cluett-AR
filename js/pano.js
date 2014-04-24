@@ -9,6 +9,7 @@ var icount = 0;
 var sc = new THREE.Object3D();
 var audioElement = document.createElement('audio');
 
+
 //This code to allow the user to scroll with finger does not yet work. User can look around the panorama by moving the iPad
 var target = new THREE.Vector3();
 
@@ -91,18 +92,18 @@ var myAppController =
 		sc.add(object1);
 	}
 
-				/*var mesh;
-               	var geometry = new THREE.SphereGeometry( 500, 64, 64 );
-               	geometry.applyMatrix( new THREE.Matrix4().makeScale( -1, 1, 1 ) );
-				var material = new THREE.MeshBasicMaterial( {
-					map: THREE.ImageUtils.loadTexture( 'img/test2.jpg' )
-				} );
-				mesh = new THREE.Mesh( geometry, material );
-				mesh.scale.x = -1;
+				// var mesh;
+    //            	var geometry = new THREE.SphereGeometry( 500, 64, 64 );
+    //            	geometry.applyMatrix( new THREE.Matrix4().makeScale( -1, 1, 1 ) );
+				// var material = new THREE.MeshBasicMaterial( {
+				// 	map: THREE.ImageUtils.loadTexture( 'img/test2.jpg' )
+				// } );
+				// mesh = new THREE.Mesh( geometry, material );
+				// mesh.scale.x = -1;
 
-				//sc.add(sphere);
-				ARGON.World.add( mesh );
- 				ARGON.threeCamera = new THREE.PerspectiveCamera( FOV, window.innerWidth / window.innerHeight, 1, 1000 );*/
+				// //sc.add(sphere);
+				// ARGON.World.add( mesh );
+ 			// 	ARGON.threeCamera = new THREE.PerspectiveCamera( FOV, window.innerWidth / window.innerHeight, 1, 1000 );
 
 			ARGON.World.add( sc );
 			ARGON.threeCamera.fov = 75;
@@ -112,8 +113,6 @@ var myAppController =
 };
 
 document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
-document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-document.addEventListener( 'touchmove', onDocumentTouchMove, false );
 
 function loadAudio(file){
     audioElement.setAttribute('src', 'audio/'+file);
