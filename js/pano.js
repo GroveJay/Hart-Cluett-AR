@@ -9,7 +9,6 @@ var icount = 0;
 var sc = new THREE.Object3D();
 var audioElement = document.createElement('audio');
 
-
 //This code to allow the user to scroll with finger does not yet work. User can look around the panorama by moving the iPad
 var target = new THREE.Vector3();
 
@@ -45,32 +44,32 @@ var myAppController =
    	
 	var sides1 = [
 		{
-			url: 'img/1.png',
+			url: './img/1.png',
 			position: new THREE.Vector3( -512, 0, 0 ),
 			rotation: new THREE.Euler( 0, Math.PI / 2, 0 )
 		},
 		{
-			url: 'img/3.png',
+			url: './img/3.png',
 			position: new THREE.Vector3 ( 512, 0, 0 ),
 			rotation: new THREE.Euler ( 0, -Math.PI / 2, 0 )
 		},
 		{
-			url: 'img/5.png',
+			url: './img/5.png',
 			position: new THREE.Vector3 ( 0,  -512, 0 ),
 			rotation: new THREE.Euler ( -Math.PI/2, 0, Math.PI )
 		},
 		{
-			url: 'img/4.png',
+			url: './img/4.png',
 			position: new THREE.Vector3 ( 0, 512, 0 ),
 			rotation: new THREE.Euler ( Math.PI/2 , 0, Math.PI)
 		},
 		{
-			url: 'img/0.png',
+			url: './img/0.png',
 			position: new THREE.Vector3 ( 0, 0,  512 ),
 			rotation: new THREE.Euler ( 0, Math.PI, 0 )
 		},
 		{
-			url: 'img/2.png',
+			url: './img/2.png',
 			position: new THREE.Vector3 ( 0, 0, -512 ),
 			rotation: new THREE.Euler ( 0, 0, 0 )
 		}
