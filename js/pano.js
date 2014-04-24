@@ -132,7 +132,7 @@ function pauseAudio(){
 
 loadAudio("RichardHart.mp3");
 
-$("#play").on('touchend click', function(){
+$("#play").on('touchend', function(){
     if($(this).hasClass("play")){
         //debug("Play pressed");
         playAudio();
