@@ -1,7 +1,9 @@
 var testing = 0;
+var scene, raycaster, renderer;
 var projector, camera;
 var objects = [];
 var audioElement = document.createElement('audio');
+var mouse = new THREE.Vector2(), INTERSECTED;
 
 var myAppController =
 {
@@ -73,22 +75,37 @@ var myAppController =
     onDocumentMouseDown: function ( event ) {
         event.preventDefault();
         projector = new THREE.Projector();
+        raycaster = new THREE.Raycaster();
         camera = ARGON.threeCamera;
-        var vector = new THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1, 0.5 );
+        // I Bet these are very wrong!
+        var vector = new THREE.Vector3( mouse.x, mouse.y, 1 );
         projector.unprojectVector( vector, camera );
-        var raycaster = new THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
+        raycaster.set( camera.position, vector.sub( camera.position ).normalize() );
+        // "objects" is wrong here i think:
+        // scene.children ==>  scene.add( object );
+        // maybe trackedObject.children
         var intersects = raycaster.intersectObjects( objects );
         /*debugObj(vector);
         debugObj(raycaster);
         debugObj(intersects);
         debugObj(objects);*/
         if ( intersects.length > 0 ) {
+            // if ( INTERSECTED != intersects[ 0 ].object ) {
+            //  if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
+            //  INTERSECTED = intersects[ 0 ].object;
+            //  INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
+            //  INTERSECTED.material.emissive.setHex( 0xff0000 );
+            // }
             alert("intersects length is > 0");
             //window.location.href="test.html";
             var particle = new THREE.Sprite( particleMaterial );
             particle.position = intersects[ 0 ].point;
             particle.scale.x = particle.scale.y = 16;
             ARGON.World.add( particle );
+        }
+        else{
+            // if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
+            // INTERSECTED = null;
         }
     },
 
@@ -98,6 +115,12 @@ var myAppController =
         //alert("switching floors: "+ floor);
     }
 };
+
+function onDocumentMouseMove( event ) {
+    event.preventDefault();
+    mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+    mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+}
 
 function debugObj(obj){
     $('.testing').append(JSON.stringify(obj, null, 4)+"<br/>");
@@ -153,6 +176,8 @@ $("#play").on('touchend click', function(){
 document.addEventListener("AR.DataSetLoadedEvent", myAppController.onDataSetLoaded);
 document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
 document.addEventListener("touchend", myAppController.onDocumentMouseDown, false );
+document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+
 debug("Starting!");
 $("#play").html("P");
 loadAudio("RichardHart.mp3");
