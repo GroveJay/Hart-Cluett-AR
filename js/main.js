@@ -1,4 +1,4 @@
-var testing = 0;
+var testing = 1;
 var scene, raycaster, renderer;
 var projector, camera;
 var objects = [];
@@ -40,9 +40,9 @@ var myAppController =
                 dae.position.x = -40;
                 dae.position.z = 0;
                 dae.position.y = -95;
-                dae.rotation.z = 180 * Math.PI / 180.0;
-                dae.rotation.x = 90 * Math.PI / 180.0;
-                dae.rotation.y = -90 * Math.PI / 180.0;
+                //dae.rotation.z = 180 * Math.PI / 180.0;
+                //dae.rotation.x = 90 * Math.PI / 180.0;
+                //dae.rotation.y = -90 * Math.PI / 180.0;
                 dae.scale.x = dae.scale.y = dae.scale.z = .17;
                 dae.updateMatrix();
                 trackedObject.add( dae );
