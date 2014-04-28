@@ -41,7 +41,8 @@ var myAppController =
                 dae.position.z = 0;
                 dae.position.y = -95;
                 dae.rotation.z = 180 * Math.PI / 180.0;
-                dae.rotation.x = 0 * Math.PI / 180.0;
+                dae.rotation.x = 90 * Math.PI / 180.0;
+                dae.rotation.y = -90 * Math.PI / 180.0;
                 dae.scale.x = dae.scale.y = dae.scale.z = .17;
                 dae.updateMatrix();
                 trackedObject.add( dae );
