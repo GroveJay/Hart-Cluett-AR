@@ -12,7 +12,7 @@ var myAppController =
     
     onArgonReady : function()
     {
-        ARGON.loadDataset("textures/Team_Exterior_Device.xml");
+        ARGON.loadDataset("textures/Team_Exterior_Device 2.xml");
     },
     
     onDataSetLoaded : function(event)
@@ -21,7 +21,7 @@ var myAppController =
         var redCube, redMaterial, redGeometry;
         
         dataset      = event.dataset;
-        stonesTarget = dataset.targets["Marble_Background_Clear"];
+        stonesTarget = dataset.targets["Marble_Facade3"];
         
         if (stonesTarget)
         {
@@ -40,7 +40,7 @@ var myAppController =
                 dae.position.x = -40;
                 dae.position.z = 0;
                 dae.position.y = -95;
-                dae.rotation.z = 180 * Math.PI / 180.0;
+                dae.rotation.z = 90 * Math.PI / 180.0;
                 dae.rotation.x = -90 * Math.PI / 180.0;
                 dae.scale.x = dae.scale.y = dae.scale.z = .17;
                 dae.updateMatrix();
