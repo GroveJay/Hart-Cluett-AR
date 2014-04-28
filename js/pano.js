@@ -162,12 +162,12 @@ $("#play").on('touchend', function(){
     if($(this).hasClass("play")){
         //debug("Play pressed");
         playAudio();
-		$(this).removeClass("play").addClass("pause");		               
+		$(this).removeClass("play").addClass("pause");        
     }
     else{
         //debug("Stop pressed");
         pauseAudio();
-        $(this).removeClass("pause").addClass("play");		               
+        $(this).removeClass("pause").addClass("play");              
     }
 });
 
@@ -175,7 +175,11 @@ $("#back").on('touchend click', function(){
 });
 
 $("#script").on('touchend click', function(){
-	$(".testing").toggle();
+	
+	if ($(".scriptContainer").hasClass("hidden")) {
+		$(".scriptContainer").removeClass("hidden");
+	}
+	else{
+		$(".scriptContainer").addClass("hidden");
+	}
 });
-
-$(".scriptContainer").toggle();
