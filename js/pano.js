@@ -172,5 +172,11 @@ $("#play").on('touchend', function(){
 });
 
 $("#back").on('touchend click', function(){
+	$(".testing").toggle();
+});
+
+$("#script").on('touchend click', function(){
 
 });
+
+$(".scriptContainer").toggle();
