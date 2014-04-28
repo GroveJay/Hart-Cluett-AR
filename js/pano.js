@@ -183,3 +183,7 @@ $("#script").on('touchend click', function(){
 		$(".scriptContainer").addClass("hidden");
 	}
 });
+
+$(".link").on('touchend click', function(){
+	window.location = "http://www.rchsonline.org/";
+});
