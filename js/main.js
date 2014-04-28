@@ -12,7 +12,7 @@ var myAppController =
     
     onArgonReady : function()
     {
-        ARGON.loadDataset("textures/Team_Exterior_Device 2.xml");
+        ARGON.loadDataset("textures/Team_Exterior_Device.xml");
     },
     
     onDataSetLoaded : function(event)
@@ -21,7 +21,7 @@ var myAppController =
         var redCube, redMaterial, redGeometry;
         
         dataset      = event.dataset;
-        stonesTarget = dataset.targets["Marble_Facade3"];
+        stonesTarget = dataset.targets["Marble_Facade5"];
         
         if (stonesTarget)
         {
