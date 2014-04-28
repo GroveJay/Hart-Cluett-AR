@@ -3,13 +3,17 @@ html{
 }
 
 body{
-    font-family: Monospace;
+	font-family: 'Nunito', Monospace;
     background-color: #f0f0f0;
     margin: 0px;
     overflow: hidden;
     height: 100%;
   }
 
+a{
+	text-decoration: none;
+	color: #222222;
+}
 canvas{
 	height: 100%;
 	width: 100%;
@@ -22,14 +26,14 @@ canvas{
 	z-index: 1000;
 	font-style: normal;
 	vertical-align: middle;
-	line-height: 39px;
+	line-height: 42px;
 	text-align:center;
-	font-size: 30px;
+	font-size: 26px;
 }
 
 .floorSelector{
-	width: 45px;
-	height:180px;
+	width: 50px;
+	height: 180px;
 	position: absolute;
 	right: 12px;
 	bottom: 70px;
@@ -39,6 +43,9 @@ canvas{
 .floorSelector .button.selected{
 	background-color:#222;
 	color: #ddd;
+}
+.house{
+	background-image: url("../img/house.png");
 }
 
 .testing{
@@ -56,14 +63,13 @@ canvas{
 .button{
 	border-radius: 5px;
 	z-index:1050;
-	margin: 5px;
+	margin: 0 0 8px;
 	width: 42px;
 	height: 42px;
 	background-color:#ddd;
 	color: #222;
-	border-color: #222;
-	border: 1px 1px 1px 1px;
 	cursor: pointer;
+	vertical-align: center;
 }
 
 .icon{
