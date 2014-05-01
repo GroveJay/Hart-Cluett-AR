@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="Marble_Background_Clear" size="11.000000 7.527304" />
-    <ImageTarget name="Marble_Facade3" size="12.000000 14.622584" />
+    <ImageTarget name="Marble_Facade5" size="247 173" />
   </Tracking>
 </QCARConfig>
