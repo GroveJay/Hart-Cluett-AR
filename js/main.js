@@ -21,7 +21,7 @@ var myAppController =
         var redCube, redMaterial, redGeometry;
         
         dataset      = event.dataset;
-        stonesTarget = dataset.targets["Marble_Facade5"];
+        stonesTarget = dataset.targets["testReal"];
         
         if (stonesTarget)
         {
