@@ -21,7 +21,7 @@ var myAppController =
         var redCube, redMaterial, redGeometry;
         
         dataset      = event.dataset;
-        stonesTarget = dataset.targets["LogoTest"];
+        stonesTarget = dataset.targets["Silly_Stones_Default"];
         
         if (stonesTarget)
         {
