@@ -69,32 +69,32 @@ var myAppController =
 	   	
 		var sides1 = [
 			{
-				url: 'img/3/1.png',
+				url: 'img/1/1.png',
 				position: new THREE.Vector3( -512, 0, 0 ),
 				rotation: new THREE.Euler( 0, Math.PI / 2, 0 )
 			},
 			{
-				url: 'img/3/3.png',
+				url: 'img/1/3.png',
 				position: new THREE.Vector3 ( 512, 0, 0 ),
 				rotation: new THREE.Euler ( 0, -Math.PI / 2, 0 )
 			},
 			{
-				url: 'img/3/5.png',
+				url: 'img/1/5.png',
 				position: new THREE.Vector3 ( 0,  -512, 0 ),
 				rotation: new THREE.Euler ( -Math.PI/2, 0, Math.PI )
 			},
 			{
-				url: 'img/3/4.png',
+				url: 'img/1/4.png',
 				position: new THREE.Vector3 ( 0, 512, 0 ),
 				rotation: new THREE.Euler ( Math.PI/2 , 0, Math.PI)
 			},
 			{
-				url: 'img/3/0.png',
+				url: 'img/1/0.png',
 				position: new THREE.Vector3 ( 0, 0,  512 ),
 				rotation: new THREE.Euler ( 0, Math.PI, 0 )
 			},
 			{
-				url: 'img/3/2.png',
+				url: 'img/1/2.png',
 				position: new THREE.Vector3 ( 0, 0, -512 ),
 				rotation: new THREE.Euler ( 0, 0, 0 )
 			}
@@ -120,7 +120,7 @@ var myAppController =
 	    //            	var geometry = new THREE.SphereGeometry( 500, 64, 64 );
 	    //            	geometry.applyMatrix( new THREE.Matrix4().makeScale( -1, 1, 1 ) );
 					// var material = new THREE.MeshBasicMaterial( {
-					// 	map: THREE.ImageUtils.loadTexture( 'img/test2.jpg' )
+					// 	map: THREE.ImageUtils.loadTexture( 'img/1est2.jpg' )
 					// } );
 					// mesh = new THREE.Mesh( geometry, material );
 					// mesh.scale.x = -1;

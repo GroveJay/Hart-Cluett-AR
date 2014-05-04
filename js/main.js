@@ -197,9 +197,7 @@ $(".blueprint").on('touchend click', function(){
     window.location = "pano"+floor+".html";
 });
 
-//if(testing == 0){
-    $(".testing").hide();
-//}
+$(".testing").hide();
 
 document.addEventListener("AR.DataSetLoadedEvent", myAppController.onDataSetLoaded);
 document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
