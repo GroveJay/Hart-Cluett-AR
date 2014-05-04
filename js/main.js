@@ -38,12 +38,12 @@ var myAppController =
                 dae = collada.scene;
                 skin = collada.skins[ 0 ];
                 dae.position.x = -40;
-                dae.position.z = 0;
+                dae.position.z = 100;
                 dae.position.y = -95;
                 //dae.rotation.z = 180 * Math.PI / 180.0;
                 //dae.rotation.x = -90 * Math.PI / 180.0;
                 dae.rotation.y = -180 * Math.PI / 180.0;
-                dae.scale.x = dae.scale.y = dae.scale.z = .34;
+                dae.scale.x = dae.scale.y = dae.scale.z = .51;
                 dae.updateMatrix();
                 trackedObject.add( dae );
                 objects.push( dae );
