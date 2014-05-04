@@ -21,7 +21,7 @@ var myAppController =
         var redCube, redMaterial, redGeometry;
         
         dataset      = event.dataset;
-        stonesTarget = dataset.targets["testReal"];
+        stonesTarget = dataset.targets["LogoTest"];
         
         if (stonesTarget)
         {
@@ -206,5 +206,5 @@ document.addEventListener("touchend", myAppController.onDocumentMouseDown, false
 document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 
 debug("Starting!");
-loadAudio("RichardHart.mp3");
+loadAudio("Introduction.mp3");
 //debugObj(ARGON.threeCamera);
