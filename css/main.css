@@ -60,6 +60,15 @@ canvas{
 	overflow:scroll;
 }
 
+.blueprint{
+	width: 70%;
+	height: 80%;
+	margin: 60px auto;
+	z-index: 1100;
+	overflow: hidden;
+	background-size: cover;
+}
+
 .button{
 	border-radius: 5px;
 	z-index:1050;

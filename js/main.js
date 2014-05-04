@@ -148,13 +148,25 @@ function pauseAudio(){
     debug("Audio paused");
 }
 
+function switchBlueprint(floor){
+    var image = "url('img/blueprint"+floor+".png')";
+    $(".blueprint").css("background-image", image);
+    $(".blueprint").removeClass("hidden");
+}
+
 // DOM STUFF //
 $(".floorSelector > .button").on('touchend click', function(){
     $(".floorSelector > .button").removeClass("selected");
     $(this).addClass("selected");
-    var floor = $(this).html();
-    debug("floor: "+floor);
-    myAppController.switchModels(floor);
+    var floor = $(this).attr("floor");
+    console.log("floor: "+floor);
+    if($(this).hasClass("floor")){
+        switchBlueprint(floor);
+    }
+    else{
+        $('.blueprint').addClass("hidden");
+    }
+    //myAppController.switchModels(floor);
 });
 
 $("#play").on('touchend click', function(){

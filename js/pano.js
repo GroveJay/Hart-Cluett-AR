@@ -172,6 +172,7 @@ $("#play").on('touchend', function(){
 });
 
 $("#back").on('touchend click', function(){
+	
 });
 
 $("#script").on('touchend click', function(){
