@@ -6,6 +6,7 @@ var lat = 0;
 var lon = 0;
 var changed = false;
 var icount = 0;
+var floor = window.location.hash.substring(1);
 var sc = new THREE.Object3D();
 var audioElement = document.createElement('audio');
 
@@ -69,32 +70,32 @@ var myAppController =
 	   	
 		var sides1 = [
 			{
-				url: 'img/0/1.png',
+				url: 'img/'+floor+'/1.png',
 				position: new THREE.Vector3( -512, 0, 0 ),
 				rotation: new THREE.Euler( 0, Math.PI / 2, 0 )
 			},
 			{
-				url: 'img/0/3.png',
+				url: 'img/'+floor+'/3.png',
 				position: new THREE.Vector3 ( 512, 0, 0 ),
 				rotation: new THREE.Euler ( 0, -Math.PI / 2, 0 )
 			},
 			{
-				url: 'img/0/5.png',
+				url: 'img/'+floor+'/5.png',
 				position: new THREE.Vector3 ( 0,  -512, 0 ),
 				rotation: new THREE.Euler ( -Math.PI/2, 0, Math.PI )
 			},
 			{
-				url: 'img/0/4.png',
+				url: 'img/'+floor+'/4.png',
 				position: new THREE.Vector3 ( 0, 512, 0 ),
 				rotation: new THREE.Euler ( Math.PI/2 , 0, Math.PI)
 			},
 			{
-				url: 'img/0/0.png',
+				url: 'img/'+floor+'/0.png',
 				position: new THREE.Vector3 ( 0, 0,  512 ),
 				rotation: new THREE.Euler ( 0, Math.PI, 0 )
 			},
 			{
-				url: 'img/0/2.png',
+				url: 'img/'+floor+'/2.png',
 				position: new THREE.Vector3 ( 0, 0, -512 ),
 				rotation: new THREE.Euler ( 0, 0, 0 )
 			}
@@ -172,7 +173,7 @@ $("#play").on('touchend', function(){
 });
 
 $("#back").on('touchend click', function(){
-	
+	window.location = "index.html";
 });
 
 $("#script").on('touchend click', function(){

@@ -194,7 +194,7 @@ $("#script").on('touchend click', function(){
 
 $(".blueprint").on('touchend click', function(){
     var floor = $(this).attr("floor");
-    window.location = "pano"+floor+".html";
+    window.location = "pano.html#"+floor;
 });
 
 $(".testing").hide();
