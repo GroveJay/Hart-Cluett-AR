@@ -13,8 +13,42 @@ var text = ['\<h1>Richard Hart\'s Death Story\:\<\/h1><h3>*In the voice of Eliza
         ,
         "ADD TEXT HERE"
 	];
-var sc = new THREE.Object3D();
+$(".scriptContainer").html(text[floor]);
+
 var audioElement = document.createElement('audio');
+loadAudio("RichardHart.mp3");
+
+$("#play").on('touchend', function(){
+    if($(this).hasClass("play")){
+        //debug("Play pressed");
+        playAudio();
+		$(this).removeClass("play").addClass("pause");        
+    }
+    else{
+        //debug("Stop pressed");
+        pauseAudio();
+        $(this).removeClass("pause").addClass("play");              
+    }
+});
+
+$("#back").on('touchend click', function(){
+	window.location = "index.html";
+});
+
+$("#script").on('touchend click', function(){
+	
+	if ($(".scriptContainer").hasClass("hidden")) {
+		$(".scriptContainer").removeClass("hidden");
+	}
+	else{
+		$(".scriptContainer").addClass("hidden");
+	}
+});
+
+$(".link").on('touchend click', function(){
+	window.location = "http://www.rchsonline.org/";
+});
+
 
 function onDocumentTouchStart( event ) {
 
@@ -143,6 +177,7 @@ var myAppController =
 
 };
 
+var sc = new THREE.Object3D();
 document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
 document.addEventListener( 'touchstart', onDocumentTouchStart, false );
 document.addEventListener( 'touchmove', onDocumentTouchMove, false );
@@ -163,36 +198,4 @@ function pauseAudio(){
     //debug("Audio paused");
 }
 
-loadAudio("RichardHart.mp3");
-$(".scriptContainer").html(text[floor]);
 
-$("#play").on('touchend', function(){
-    if($(this).hasClass("play")){
-        //debug("Play pressed");
-        playAudio();
-		$(this).removeClass("play").addClass("pause");        
-    }
-    else{
-        //debug("Stop pressed");
-        pauseAudio();
-        $(this).removeClass("pause").addClass("play");              
-    }
-});
-
-$("#back").on('touchend click', function(){
-	window.location = "index.html";
-});
-
-$("#script").on('touchend click', function(){
-	
-	if ($(".scriptContainer").hasClass("hidden")) {
-		$(".scriptContainer").removeClass("hidden");
-	}
-	else{
-		$(".scriptContainer").addClass("hidden");
-	}
-});
-
-$(".link").on('touchend click', function(){
-	window.location = "http://www.rchsonline.org/";
-});
