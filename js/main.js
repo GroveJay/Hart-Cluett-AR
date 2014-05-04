@@ -37,7 +37,7 @@ var myAppController =
             loader.load( 'obj/marble.dae', function ( collada ) {
                 dae = collada.scene;
                 skin = collada.skins[ 0 ];
-                dae.position.x = -40;
+                dae.position.x = -140;
                 dae.position.z = 100;
                 dae.position.y = -95;
                 //dae.rotation.z = 180 * Math.PI / 180.0;
