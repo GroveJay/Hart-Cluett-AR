@@ -21,7 +21,7 @@ var myAppController =
         var redCube, redMaterial, redGeometry;
         
         dataset      = event.dataset;
-        stonesTarget = dataset.targets["Silly_Stones_Default"];
+        stonesTarget = dataset.targets["QR2"];
         
         if (stonesTarget)
         {
