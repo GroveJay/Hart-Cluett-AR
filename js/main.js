@@ -167,6 +167,7 @@ $(".floorSelector > .button").on('touchend click', function(){
     else{
         $('.blueprint').addClass("hidden");
     }
+    $(".scriptContainer").addClass("hidden");
     //myAppController.switchModels(floor);
 });
 
