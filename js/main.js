@@ -1,4 +1,4 @@
-var testing = 1;
+var testing = 0;
 var scene, raycaster, renderer;
 var projector, camera;
 var objects = [];
@@ -21,7 +21,7 @@ var myAppController =
         var redCube, redMaterial, redGeometry;
         
         dataset      = event.dataset;
-        stonesTarget = dataset.targets["Marble_Facade5"];
+        stonesTarget = dataset.targets["QR2"];
         
         if (stonesTarget)
         {
@@ -37,13 +37,13 @@ var myAppController =
             loader.load( 'obj/marble.dae', function ( collada ) {
                 dae = collada.scene;
                 skin = collada.skins[ 0 ];
-                dae.position.x = -40;
-                dae.position.z = 0;
-                dae.position.y = -95;
+                dae.position.x = -140;
+                dae.position.z = 100;
+                dae.position.y = -145;
                 //dae.rotation.z = 180 * Math.PI / 180.0;
                 //dae.rotation.x = -90 * Math.PI / 180.0;
-                dae.rotation.y = -90 * Math.PI / 180.0;
-                dae.scale.x = dae.scale.y = dae.scale.z = .17;
+                dae.rotation.y = -180 * Math.PI / 180.0;
+                dae.scale.x = dae.scale.y = dae.scale.z = .6;
                 dae.updateMatrix();
                 trackedObject.add( dae );
                 objects.push( dae );
@@ -117,6 +117,7 @@ var myAppController =
     }
 };
 
+// Functions //
 function onDocumentMouseMove( event ) {
     event.preventDefault();
     mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
@@ -134,45 +135,70 @@ function debug(text){
 
 function loadAudio(file){
     audioElement.setAttribute('src', 'audio/'+file);
-    debug("File picked!");
+    //debug("File picked!");
     audioElement.load;
 }
 
 function playAudio(){
     audioElement.play();
-    debug("Audio started");
+    //debug("Audio started");
 }
 
 function pauseAudio(){
     audioElement.pause();
-    debug("Audio paused");
+    //debug("Audio paused");
+}
+
+function switchBlueprint(floor){
+    var image = "url('img/fl_"+floor+".png')";
+    $(".blueprint").css("background-image", image);
+    $(".blueprint").attr("floor", floor);
+    $(".blueprint").removeClass("hidden");
 }
 
 // DOM STUFF //
 $(".floorSelector > .button").on('touchend click', function(){
     $(".floorSelector > .button").removeClass("selected");
     $(this).addClass("selected");
-    var floor = $(this).html();
-    debug("floor: "+floor);
-    myAppController.switchModels(floor);
-});
-
-$("#play").on('touchend click', function(){
-    if($(this).html()=="P"){
-        debug("Play pressed");
-        playAudio();
-        $(this).css("background-image", "../img/pause.png");       
+    var floor = $(this).attr("floor");
+    if($(this).hasClass("floor")){
+        switchBlueprint(floor);
     }
     else{
-        debug("Stop pressed");
+        $('.blueprint').addClass("hidden");
+    }
+    $(".scriptContainer").addClass("hidden");
+    //myAppController.switchModels(floor);
+});
+
+$("#play").on('touchend', function(){
+    if($(this).hasClass("play")){
+        //debug("Play pressed");
+        playAudio();
+        $(this).removeClass("play").addClass("pause");        
+    }
+    else{
+        //debug("Stop pressed");
         pauseAudio();
-        $(this).css("background-image", "../img/play.png");          
+        $(this).removeClass("pause").addClass("play");              
     }
 });
 
-//if(testing == 0){
-    $(".testing").hide();
-//}
+$("#script").on('touchend click', function(){
+    if ($(".scriptContainer").hasClass("hidden")) {
+        $(".scriptContainer").removeClass("hidden");
+    }
+    else{
+        $(".scriptContainer").addClass("hidden");
+    }
+});
+
+$(".blueprint").on('touchend click', function(){
+    var floor = $(this).attr("floor");
+    window.location = "pano.html#"+floor;
+});
+
+$(".testing").hide();
 
 document.addEventListener("AR.DataSetLoadedEvent", myAppController.onDataSetLoaded);
 document.addEventListener("AR.ArgonReadyEvent", myAppController.onArgonReady);
@@ -180,6 +206,5 @@ document.addEventListener("touchend", myAppController.onDocumentMouseDown, false
 document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 
 debug("Starting!");
-$("#play").html("P");
-loadAudio("RichardHart.mp3");
+loadAudio("Introduction.mp3");
 //debugObj(ARGON.threeCamera);

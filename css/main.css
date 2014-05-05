@@ -3,7 +3,7 @@ html{
 }
 
 body{
-	font-family: 'Nunito', Monospace;
+	font-family: Sans-Serif;
     background-color: #f0f0f0;
     margin: 0px;
     overflow: hidden;
@@ -60,6 +60,35 @@ canvas{
 	overflow:scroll;
 }
 
+.coverContainer{
+	position: fixed;
+	top: 0px;
+	height: 80%;
+	left: 160px;
+	right: 160px;
+	margin: 60px auto;
+	z-index: 1050;
+}
+
+.scriptContainer{
+	background-color:rgba(220, 220, 220, 0.5);
+	position: fixed;
+	color:#000;
+	/*width:70%;*/
+	font-size: 16px;
+	padding: 5 20px;
+	text-align:left;
+	overflow:scroll;
+}
+
+.blueprint{
+	z-index: 1100;
+	overflow: hidden;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
 .button{
 	border-radius: 5px;
 	z-index:1050;
@@ -81,17 +110,17 @@ canvas{
 
 #back{
 	background-image: url("../img/back2.png");
-	left: 10px;
+	left: 20px;
 	top: 60px;
 }
 
 #play{
-	right: 10px;
+	right: 20px;
 	top: 60px;
 }
 
 #script{
-	right: 10px;
+	right: 20px;
 	top: 110px;
 }
 
@@ -109,6 +138,6 @@ canvas{
 
 .link{
 	background-image: url("../img/link.png");
-	right: 10px;
+	right: 20px;
 	bottom: 70px;
 }

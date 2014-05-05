@@ -10,20 +10,33 @@
       <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
     </head>
     <body>
+      <div id="play" class="icon ui button play"></div>
+      <div id="script" class="icon ui button script"></div>
       <div class="floorSelector ui">
-        <div class="button">
-          <a href="pano.html">2</a>
+        <div class="button floor" floor="2">
+          2
         </div>
-        <div class="button">
+        <div class="button floor" floor="1">
           1
         </div>
-        <div class="button">
+        <div class="button floor" floor="0">
           B
         </div>
-        <div class="icon button house">
+        <div class="icon button house" floor="H">
         </div>
       </div>
-      <div class="testing">
+      <div class="testing coverContainer">
+      </div>
+      <div class="blueprint coverContainer hidden">
+      </div>
+      <div class="scriptContainer coverContainer hidden">
+        <h1>Introduction to the Hart-Cluett House:</h1>
+        <p>Built in 1827 for Richard P. Hart and his wife, Betsey Amelia Howard, from a plan by New York City architect Martin Euclid Thompson, the Hart-Cluett House of Troy is a late Federal style townhouse with a decorative marble façde .It is one of the first residential buildings to use this expensive material.</p>
+        <p>The Hart-Cluett House’s extravagant exterior was the inspiration for many other townhouses built later in rows of identical frontages in New York City and elsewhere. However, very few of these houses remain intact today.</p>
+        <p>The Hart-Cluett House was built by John Bard Colegrove at the direction of William Howard, father of Betsey Amelia Hart.  Howard gave the house to his daughter, Betsey, and her husband, Richard P. Hart, ten years after their marriage in 1816.</p>
+        <p>They moved into their new home in May of 1827. For many years it was known as the “Marble House in Second Street,” one of the finest residences in the City.</p>
+        <p>In the late 19th century the house became the property of local businessman and detachable collar and cuff manufacturer, George B. Cluett. Cluett added a back wing that included a kitchen which had originally been in the basement. The third owners of the house, Albert E. and Caroline I. Cluett, donated the building to the Rensselaer County Historical Society in 1952 and it has been open to the public as a museum ever since.</p>
+        <p><b>Select a floor to begin your exploration of this historical building.</b></p>
       </div>
     </body>
     <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
@@ -32,6 +45,6 @@
     <script type="text/javascript" src="js/ColladaLoader.js"></script>
     <script type="text/javascript" src="js/TrackballControls.js"></script>
     <script type="text/javascript" src="js/stats.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
     <script src="http://argon.gatech.edu/argon.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </html>
